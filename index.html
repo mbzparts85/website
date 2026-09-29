@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MBZ TRADING - Toyota genuine auto spare parts sourcing, wholesale supply and import support.">
+<title>MBZ TRADING | Toyota Genuine Auto Parts</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav-wrap">
+    <a class="logo" href="#home"><span>MBZ</span> TRADING</a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav class="nav">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a>
+      <a href="#products">Products</a><a href="#quote">Request Quote</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">TOYOTA GENUINE AUTO SPARE PARTS</div>
+      <h1>Your Reliable Partner for <span>Genuine Parts</span></h1>
+      <p>MBZ TRADING sources and supplies Toyota genuine auto spare parts for importers, wholesalers, retailers, workshops and automotive businesses.</p>
+      <div class="actions">
+        <a class="btn primary" href="#products">Find Parts</a>
+        <a class="btn dark" href="https://wa.me/923335173910?text=Hello%20MBZ%20TRADING%2C%20I%20would%20like%20to%20enquire%20about%20Toyota%20genuine%20parts." target="_blank">WhatsApp Us</a>
+      </div>
+      <div class="trust-row"><span>✓ Genuine sourcing</span><span>✓ Wholesale enquiries</span><span>✓ International supply</span></div>
+    </div>
+    <div class="hero-box">
+      <div class="hero-mark">MBZ</div>
+      <h3>Parts Enquiry</h3>
+      <p>Have a Toyota part number? Search our catalogue or send it directly to us.</p>
+      <a href="#quote" class="quote-link">Request a quotation →</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+<div class="container about-grid">
+  <div><div class="tag">ABOUT MBZ TRADING</div><h2>Built around reliable sourcing and long-term business.</h2></div>
+  <div><p>MBZ TRADING is an automotive spare-parts business focused on sourcing and supplying Toyota genuine auto parts. We work with international suppliers and support customers with part identification, sourcing and wholesale requirements.</p><p>Send us a Toyota part number, model or requirement and our team can review the enquiry with you.</p></div>
+</div>
+</section>
+
+<section id="services" class="section light">
+<div class="container">
+  <div class="heading"><div class="tag">OUR SERVICES</div><h2>How We Help</h2></div>
+  <div class="cards">
+    <article><b>🔎</b><h3>Parts Sourcing</h3><p>Source Toyota genuine parts by part number, model or requirement.</p></article>
+    <article><b>📦</b><h3>Wholesale Supply</h3><p>Support for retailers, workshops, importers and automotive businesses.</p></article>
+    <article><b>🌍</b><h3>Import Support</h3><p>International supplier sourcing and purchasing support.</p></article>
+    <article><b>🧾</b><h3>Part Identification</h3><p>Help with descriptions, applications and fitment information.</p></article>
+  </div>
+</div>
+</section>
+
+<section id="products" class="section">
+<div class="container">
+  <div class="heading"><div class="tag">PRODUCT CATALOGUE</div><h2>Find Your Part</h2><p>Search <strong id="inventoryCount">220</strong> Toyota part records by part number, product name or category.</p></div>
+  <div class="search-wrap">
+    <input id="partSearch" type="search" placeholder="Search part number, e.g. 17801-0L040 or brake pad">
+    <select id="categoryFilter">
+      <option value="all">All categories</option><option value="Filters">Filters</option><option value="Brake">Brake Parts</option>
+      <option value="Engine">Engine Parts</option><option value="Suspension">Suspension</option><option value="Electrical">Electrical</option>
+    </select>
+  </div>
+  <div id="productGrid" class="product-grid"></div>
+  <p id="noResults" class="no-results">No matching parts found. <a href="#quote">Request this part</a>.</p>
+</div>
+</section>
+
+<section id="quote" class="section quote-section">
+<div class="container quote-grid">
+  <div>
+    <div class="tag">REQUEST A QUOTATION</div>
+    <h2>Send us your part requirement.</h2>
+    <p>Enter the part number or list of parts. The button will prepare a WhatsApp enquiry for MBZ TRADING.</p>
+    <div class="quote-note">WhatsApp: <strong>+92-333-5173910</strong><br>Email: <strong>mbztrading0086@gmail.com</strong></div>
+  </div>
+  <form id="quoteForm" class="form">
+    <label>Name<input id="qName" required placeholder="Your name"></label>
+    <label>Company<input id="qCompany" placeholder="Company name"></label>
+    <label>Part Number / Requirement<textarea id="qParts" required rows="5" placeholder="Example: 17801-0L040 x 50 pcs"></textarea></label>
+    <label>Additional Details<textarea id="qDetails" rows="3" placeholder="Model, quantity, destination, etc."></textarea></label>
+    <button class="btn primary full" type="submit">Send Enquiry on WhatsApp</button>
+  </form>
+</div>
+</section>
+
+<section id="contact" class="section">
+<div class="container contact-grid">
+  <div>
+    <div class="tag">CONTACT</div><h2>Let's discuss your requirements.</h2>
+    <div class="contact-list">
+      <a href="https://wa.me/923335173910" target="_blank"><b>WhatsApp</b><span>+92-333-5173910</span></a>
+      <a href="mailto:mbztrading0086@gmail.com"><b>Email</b><span>mbztrading0086@gmail.com</span></a>
+      <div><b>Location</b><span>Pakistan</span></div>
+    </div>
+  </div>
+  <form id="contactForm" class="form">
+    <label>Name<input required placeholder="Your name"></label>
+    <label>Email<input type="email" required placeholder="you@example.com"></label>
+    <label>Message<textarea required rows="6" placeholder="Your message"></textarea></label>
+    <button class="btn primary full" type="submit">Prepare WhatsApp Message</button>
+    <p id="contactMsg"></p>
+  </form>
+</div>
+</section>
+
+<a class="wa-float" href="https://wa.me/923335173910" target="_blank" aria-label="WhatsApp">☘</a>
+<footer><div class="container footer"><div class="logo"><span>MBZ</span> TRADING</div><p>© <span id="year"></span> MBZ TRADING. All rights reserved.</p></div></footer>
+<script src="script.js"></script>
+</body>
+</html>
