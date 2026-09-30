@@ -1,13 +1,376 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MBZ TRADING - Toyota Genuine Auto Spare Parts</title><link rel="stylesheet" href="style.css"><style>.mbz-main-brand{text-align:center;padding:22px 10px 12px;font-weight:900;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1;letter-spacing:.04em}.mbz-main-brand span{display:block;margin-top:8px;font-size:clamp(.8rem,1.6vw,1.2rem);letter-spacing:.22em;font-weight:700}.products-tools{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.products-tools input,.products-tools select{padding:12px;border:1px solid #ccc;border-radius:8px;font-size:16px}.products-tools input{flex:1;min-width:260px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}.card{border:1px solid #ddd;border-radius:12px;padding:18px;background:#fff}.card h3{margin:0 0 10px}.meta{margin:6px 0;color:#555}.wa{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:7px;text-decoration:none;font-weight:700}.pagination{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin:28px 0}.pagination button{padding:9px 13px;border:1px solid #ccc;background:#fff;border-radius:7px;cursor:pointer}.pagination .active{background:#111;color:#fff}.pagination button:disabled{opacity:.45;cursor:not-allowed}.info{text-align:center;color:#666;margin:10px 0}</style></head><body><div class="mbz-main-brand">MBZ TRADING<span>AUTO SPARE PARTS</span></div><main class="container" style="padding-top:20px"><h1>Toyota Genuine Auto Spare Parts</h1><p>10 products per page</p><div class="products-tools"><input id="q" type="search" placeholder="Search part number or description"><select id="cat"><option value="">All Categories</option></select></div><div id="info" class="info"></div><div id="grid" class="grid"></div><div id="pages" class="pagination"></div><div id="pageInfo" class="info"></div></main><script src="script.js"></script><script>
-(function(){
-const SIZE=10;let pageNo=1,all=[],filtered=[];
-function pick(o,keys){for(const k of keys)if(o&&o[k]!=null&&String(o[k]).trim())return o[k];return ""}
-function getData(){const c=[window.products,window.parts,window.productData,window.toyotaParts,window.inventory,window.items];for(const x of c)if(Array.isArray(x)&&x.length)return x;for(const k of Object.keys(window)){try{const x=window[k];if(Array.isArray(x)&&x.length&&typeof x[0]==="object"&&/04465|part.?number|description/i.test(JSON.stringify(x.slice(0,3))))return x}catch(e){}}return []}
-function norm(o){return{part:pick(o,["partNumber","part_number","Part Number","partNo","part","PART NUMBER"]),desc:pick(o,["description","Description","desc","DESCRIPTION","name"]),category:pick(o,["category","Category","CATEGORY"]),model:pick(o,["model","Model"]),engine:pick(o,["engine","Engine","engineCC","Engine CC"]),fitment:pick(o,["fitment","Fitment","filment","Filment"])}}
-function esc(x){return String(x||"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-function renderCats(){const cs=[...new Set(all.map(x=>x.category).filter(Boolean))].sort();cat.innerHTML='<option value="">All Categories</option>'+cs.map(x=>'<option>'+esc(x)+'</option>').join("")}
-function filter(){const qv=q.value.toLowerCase().trim(),cv=cat.value;filtered=all.filter(x=>(!qv||[x.part,x.desc,x.category,x.model,x.engine,x.fitment].join(" ").toLowerCase().includes(qv))&&(!cv||x.category===cv));pageNo=1;render()}
-function render(){const total=Math.max(1,Math.ceil(filtered.length/SIZE));if(pageNo>total)pageNo=total;const start=(pageNo-1)*SIZE,items=filtered.slice(start,start+SIZE);info.textContent='Showing '+(filtered.length?start+1:0)+'-'+Math.min(start+SIZE,filtered.length)+' of '+filtered.length+' products';grid.innerHTML=items.length?items.map(x=>'<article class="card"><h3>'+esc(x.part||'Toyota Genuine Part')+'</h3><div class="meta"><b>Description:</b> '+esc(x.desc||'—')+'</div><div class="meta"><b>Category:</b> '+esc(x.category||'—')+'</div>'+(x.model?'<div class="meta"><b>Model:</b> '+esc(x.model)+'</div>':'')+(x.engine?'<div class="meta"><b>Engine:</b> '+esc(x.engine)+'</div>':'')+(x.fitment?'<div class="meta"><b>Fitment:</b> '+esc(x.fitment)+'</div>':'')+'<a class="wa" target="_blank" href="https://wa.me/923335173910?text='+encodeURIComponent('Hello MBZ TRADING, I am interested in Toyota genuine part '+x.part+'. Please provide price and availability.')+'">Enquire on WhatsApp</a></article>').join(""):"<p>No products found.</p>";pages.innerHTML="";const prev=document.createElement('button');prev.textContent='Previous';prev.disabled=pageNo===1;prev.onclick=()=>{pageNo--;render()};pages.appendChild(prev);for(let i=1;i<=total;i++){const b=document.createElement('button');b.textContent=i;b.className=i===pageNo?'active':'';b.onclick=()=>{pageNo=i;render()};pages.appendChild(b)}const next=document.createElement('button');next.textContent='Next';next.disabled=pageNo===total;next.onclick=()=>{pageNo++;render()};pages.appendChild(next);pageInfo.textContent='Page '+pageNo+' of '+total}
-all=getData().map(norm).filter(x=>x.part||x.desc);filtered=all.slice();renderCats();render();q.addEventListener('input',filter);cat.addEventListener('change',filter)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBZ TRADING - Auto Spare Parts</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.mbz-brand {
+  text-align:center;
+  padding:25px 10px 15px;
+  font-size:clamp(42px,7vw,78px);
+  font-weight:900;
+  line-height:1;
+  letter-spacing:.03em;
+}
+.mbz-brand span {
+  display:block;
+  margin-top:9px;
+  font-size:clamp(13px,1.6vw,21px);
+  letter-spacing:.22em;
+  font-weight:700;
+}
+.products-tools {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+.products-tools input,.products-tools select {
+  padding:12px 14px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+}
+.products-tools input { flex:1 1 280px; }
+.products-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+}
+.product-card {
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:18px;
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+.product-card h3 { margin:0 0 10px; }
+.meta { margin:6px 0; color:#555; }
+.wa {
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 14px;
+  border-radius:7px;
+  text-decoration:none;
+  font-weight:700;
+}
+.page-summary { text-align:center; margin:15px 0; color:#666; }
+.pagination {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  margin:30px 0 40px;
+}
+.pagination button {
+  min-width:42px;
+  padding:10px 13px;
+  border:1px solid #ccc;
+  background:#fff;
+  border-radius:7px;
+  cursor:pointer;
+  font-weight:600;
+}
+.pagination button.active {
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+.pagination button:disabled {
+  opacity:.45;
+  cursor:not-allowed;
+}
+</style>
+</head>
+<body>
+
+<div class="mbz-brand">
+  MBZ TRADING
+  <span>AUTO SPARE PARTS</span>
+</div>
+
+<main class="container" style="padding-top:20px;">
+  <h1>Toyota Genuine Auto Spare Parts</h1>
+  <p>Our products are displayed <strong>10 parts per page</strong>.</p>
+
+  <div class="products-tools">
+    <input id="searchInput" type="search" placeholder="Search part number or description...">
+    <select id="categoryFilter">
+      <option value="">All Categories</option>
+    </select>
+  </div>
+
+  <div id="summary" class="page-summary"></div>
+  <div id="productsGrid" class="products-grid"></div>
+  <div id="pagination" class="pagination"></div>
+  <div id="pageInfo" class="page-summary"></div>
+</main>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  const PER_PAGE = 10;
+  let currentPage = 1;
+  let allProducts = [];
+  let filteredProducts = [];
+
+  function getValue(obj, names) {
+    for (const name of names) {
+      if (obj && obj[name] !== undefined && obj[name] !== null &&
+          String(obj[name]).trim() !== "") {
+        return obj[name];
+      }
+    }
+    return "";
+  }
+
+  function getProductArray() {
+    const candidates = [
+      window.products,
+      window.parts,
+      window.productData,
+      window.toyotaParts,
+      window.inventory,
+      window.items
+    ];
+
+    for (const arr of candidates) {
+      if (Array.isArray(arr) && arr.length) return arr;
+    }
+
+    // Automatically detect the existing product array if its variable name differs.
+    for (const key of Object.keys(window)) {
+      try {
+        const arr = window[key];
+        if (Array.isArray(arr) && arr.length && typeof arr[0] === "object") {
+          const sample = JSON.stringify(arr.slice(0,3));
+          if (/04465|part.?number|description/i.test(sample)) return arr;
+        }
+      } catch (e) {}
+    }
+
+    return [];
+  }
+
+  function normalize(obj) {
+    return {
+      part: getValue(obj, [
+        "partNumber","part_number","Part Number","partNo","part",
+        "PART NUMBER","PART_NUMBER"
+      ]),
+      desc: getValue(obj, [
+        "description","Description","desc","DESCRIPTION","name","Name"
+      ]),
+      category: getValue(obj, ["category","Category","CATEGORY"]),
+      model: getValue(obj, ["model","Model","MODEL"]),
+      engine: getValue(obj, [
+        "engine","Engine","ENGINE","engineCC","Engine CC"
+      ]),
+      fitment: getValue(obj, [
+        "fitment","Fitment","FITMENT","filment","Filment"
+      ])
+    };
+  }
+
+  function escapeHTML(value) {
+    return String(value || "").replace(/[&<>"']/g, function (c) {
+      return {
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+      }[c];
+    });
+  }
+
+  function makeWhatsAppLink(item) {
+    const message =
+      "Hello MBZ TRADING, I am interested in Toyota genuine part " +
+      item.part +
+      ". Please provide price and availability.";
+    return "https://wa.me/923335173910?text=" +
+      encodeURIComponent(message);
+  }
+
+  function buildCategories() {
+    const select = document.getElementById("categoryFilter");
+    const categories = [...new Set(
+      allProducts.map(p => p.category).filter(Boolean)
+    )].sort();
+
+    select.innerHTML =
+      '<option value="">All Categories</option>' +
+      categories.map(c =>
+        '<option value="' + escapeHTML(c) + '">' +
+        escapeHTML(c) + '</option>'
+      ).join("");
+  }
+
+  function applyFilters() {
+    const search = document.getElementById("searchInput")
+      .value.toLowerCase().trim();
+    const category = document.getElementById("categoryFilter").value;
+
+    filteredProducts = allProducts.filter(function (p) {
+      const text = [
+        p.part,p.desc,p.category,p.model,p.engine,p.fitment
+      ].join(" ").toLowerCase();
+
+      return (!search || text.includes(search)) &&
+             (!category || p.category === category);
+    });
+
+    currentPage = 1;
+    renderPage();
+  }
+
+  function renderPage() {
+    const totalPages = Math.max(
+      1,
+      Math.ceil(filteredProducts.length / PER_PAGE)
+    );
+
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    // THIS is the key: only 10 records are sliced for the current page.
+    const startIndex = (currentPage - 1) * PER_PAGE;
+    const endIndex = startIndex + PER_PAGE;
+    const pageProducts = filteredProducts.slice(startIndex, endIndex);
+
+    const summary = document.getElementById("summary");
+    summary.textContent =
+      "Showing " +
+      (filteredProducts.length ? startIndex + 1 : 0) +
+      "–" +
+      Math.min(endIndex, filteredProducts.length) +
+      " of " +
+      filteredProducts.length +
+      " parts";
+
+    const grid = document.getElementById("productsGrid");
+
+    if (!pageProducts.length) {
+      grid.innerHTML = "<p>No products found.</p>";
+    } else {
+      grid.innerHTML = pageProducts.map(function (p) {
+        return `
+          <article class="product-card">
+            <h3>${escapeHTML(p.part || "Toyota Genuine Part")}</h3>
+            <div class="meta"><strong>Description:</strong> ${escapeHTML(p.desc || "—")}</div>
+            <div class="meta"><strong>Category:</strong> ${escapeHTML(p.category || "—")}</div>
+            ${p.model ? '<div class="meta"><strong>Model:</strong> ' + escapeHTML(p.model) + '</div>' : ''}
+            ${p.engine ? '<div class="meta"><strong>Engine:</strong> ' + escapeHTML(p.engine) + '</div>' : ''}
+            ${p.fitment ? '<div class="meta"><strong>Fitment:</strong> ' + escapeHTML(p.fitment) + '</div>' : ''}
+            <a class="wa"
+               href="${makeWhatsAppLink(p)}"
+               target="_blank"
+               rel="noopener">
+               Enquire on WhatsApp
+            </a>
+          </article>
+        `;
+      }).join("");
+    }
+
+    renderPagination(totalPages);
+
+    document.getElementById("pageInfo").textContent =
+      "Page " + currentPage + " of " + totalPages +
+      " — 10 parts maximum per page";
+  }
+
+  function goToPage(page) {
+    const totalPages = Math.max(
+      1,
+      Math.ceil(filteredProducts.length / PER_PAGE)
+    );
+
+    if (page < 1 || page > totalPages) return;
+
+    currentPage = page;
+    renderPage();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  function renderPagination(totalPages) {
+    const container = document.getElementById("pagination");
+    container.innerHTML = "";
+
+    const previous = document.createElement("button");
+    previous.textContent = "Previous";
+    previous.disabled = currentPage === 1;
+    previous.onclick = function () {
+      goToPage(currentPage - 1);
+    };
+    container.appendChild(previous);
+
+    // Show page numbers. For larger inventories, keep the control compact.
+    let start = Math.max(1, currentPage - 2);
+    let end = Math.min(totalPages, currentPage + 2);
+
+    if (start > 1) {
+      addPageButton(1);
+      if (start > 2) addEllipsis();
+    }
+
+    for (let i = start; i <= end; i++) {
+      addPageButton(i);
+    }
+
+    if (end < totalPages) {
+      if (end < totalPages - 1) addEllipsis();
+      addPageButton(totalPages);
+    }
+
+    const next = document.createElement("button");
+    next.textContent = "Next";
+    next.disabled = currentPage === totalPages;
+    next.onclick = function () {
+      goToPage(currentPage + 1);
+    };
+    container.appendChild(next);
+
+    function addPageButton(page) {
+      const button = document.createElement("button");
+      button.textContent = page;
+      if (page === currentPage) button.className = "active";
+      button.onclick = function () {
+        goToPage(page);
+      };
+      container.appendChild(button);
+    }
+
+    function addEllipsis() {
+      const span = document.createElement("span");
+      span.textContent = "…";
+      span.style.padding = "10px 3px";
+      container.appendChild(span);
+    }
+  }
+
+  allProducts = getProductArray()
+    .map(normalize)
+    .filter(p => p.part || p.desc);
+
+  filteredProducts = allProducts.slice();
+
+  buildCategories();
+  renderPage();
+
+  document.getElementById("searchInput")
+    .addEventListener("input", applyFilters);
+
+  document.getElementById("categoryFilter")
+    .addEventListener("change", applyFilters);
 })();
-</script></body></html>
+</script>
+</body>
+</html>
