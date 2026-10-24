@@ -1,2 +1,13 @@
-<!doctype html><html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width, initial-scale=1"><?php wp_head(); ?></head><body <?php body_class(); ?>><?php wp_body_open(); ?>
-<header class="mbz-header"><div class="mbz-container mbz-nav-wrap"><a class="mbz-brand" href="<?php echo esc_url(home_url('/')); ?>"><span class="mbz-name"><?php echo esc_html(get_theme_mod('mbz_company_name','MBZ TRADING')); ?></span><span class="mbz-subtitle"><?php echo esc_html(get_theme_mod('mbz_subtitle','AUTO SPARE PARTS')); ?></span></a><button class="mbz-menu-toggle" aria-label="Open menu">☰</button><nav class="mbz-nav"><a href="#home">Home</a><a href="#about">About Us</a><a href="#services">Services</a><a href="#products">Products</a><a href="#quote">Request Quote</a><a href="#contact">Contact</a></nav></div></header>
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+<div id="root"></div>
