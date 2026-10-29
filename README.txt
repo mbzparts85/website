@@ -1,8 +1,13 @@
 MBZ TRADING — PROFESSIONAL WEBSITE REFRESH
 
 Files included:
-- index.html: homepage
+- index.html: homepage (hero, about teaser, categories, quote call-to-action)
+- about.html: company profile
+- services.html: services and sourcing markets
+- catalogue.html: search and filter catalogue (all parts on one page)
 - products.html: searchable product catalogue with pagination (10 parts per page)
+- quote.html: quotation request form (sends to WhatsApp)
+- contact.html: contact details and message form
 - style.css: premium navy / white / orange theme and responsive layouts
 - script.js: existing catalogue data and enquiry functionality
 - assets/: MBZ logo and illustrative automotive category / hero imagery

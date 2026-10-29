@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Search the MBZ TRADING genuine auto spare parts catalogue by part number, description or category.">
+<title>Catalogue | MBZ TRADING</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="brand-strip">
+  <a class="brand-lockup" href="index.html" aria-label="MBZ TRADING home">
+    <img class="brand-logo" src="assets/mbz-logo.svg" alt="MBZ Trading — Genuine Auto Spare Parts">
+  </a>
+  <span class="brand-note">INTERNATIONAL SOURCING · WHOLESALE SUPPLY</span>
+</div>
+
+<header class="header">
+  <div class="container nav-wrap">
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="catalogue.html" class="active">Catalogue</a>
+      <a href="products.html">All Parts</a>
+      <a href="quote.html" class="nav-cta">Request a Quote</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<section class="catalog-header page-hero">
+  <div class="container catalog-hero-content">
+    <div>
+      <div class="tag">PRODUCT CATALOGUE</div>
+      <h1>FIND YOUR <span>PART</span></h1>
+      <p>Search by part number, product name or category, then enquire directly on WhatsApp.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+<div class="container">
+  <div class="category-showcase">
+    <a class="category-card" href="catalogue.html?category=Other#partSearch"><img src="assets/body-parts.jpg" alt="Illustrative body parts"><span class="category-card-copy"><strong>Body Parts</strong><small>Bumpers, bonnets, fenders, doors</small></span></a>
+    <a class="category-card" href="catalogue.html?category=Electrical#partSearch"><img src="assets/electrical-parts.jpg" alt="Illustrative electrical auto parts"><span class="category-card-copy"><strong>Electrical Parts</strong><small>Sensors, switches, lights, wiring</small></span></a>
+    <a class="category-card" href="catalogue.html?category=Suspension#partSearch"><img src="assets/suspension-parts.jpg" alt="Illustrative suspension parts"><span class="category-card-copy"><strong>Suspension Parts</strong><small>Shocks, control arms, bushes</small></span></a>
+    <a class="category-card" href="catalogue.html?category=Engine#partSearch"><img src="assets/engine-parts.jpg" alt="Illustrative engine parts"><span class="category-card-copy"><strong>Engine Parts</strong><small>Engine, cooling, gaskets, belts</small></span></a>
+    <a class="category-card" href="catalogue.html?category=Filters#partSearch"><img src="assets/filters-parts.jpg" alt="Illustrative automotive filters"><span class="category-card-copy"><strong>Filters &amp; More</strong><small>Oil, air and fuel filters</small></span></a>
+  </div>
+  <div class="search-wrap">
+    <input id="partSearch" type="search" placeholder="Search by part number, description or category">
+    <select id="categoryFilter">
+      <option value="all">All categories</option><option value="Filters">Filters</option><option value="Brake">Brake Parts</option>
+      <option value="Engine">Engine Parts</option><option value="Suspension">Suspension</option><option value="Electrical">Electrical</option><option value="Other">Body &amp; Other Parts</option>
+    </select>
+  </div>
+  <div id="productGrid" class="product-grid"></div>
+  <p id="noResults" class="no-results">No matching parts found. <a href="quote.html">Request this part</a>.</p>
+  <p class="catalog-more">Prefer a paged view? <a href="products.html">Browse all parts, 10 per page →</a></p>
+</div>
+</section>
+
+<section class="cta-band">
+  <div class="container cta-inner">
+    <div><div class="tag">REQUEST A QUOTATION</div><h2>Need a part? Send us the part number.</h2></div>
+    <div class="actions">
+      <a class="btn primary" href="quote.html">Request a Quote</a>
+      <a class="btn dark" href="https://wa.me/923335173910?text=Hello%20MBZ%20TRADING%2C%20I%20would%20like%20to%20enquire%20about%20genuine%20auto%20spare%20parts." target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+<a class="wa-float" href="https://wa.me/923335173910" target="_blank" rel="noopener" aria-label="WhatsApp">↗</a>
+<footer><div class="container footer"><a class="footer-brand" href="index.html"><img src="assets/mbz-logo.svg" alt="MBZ Trading"><span>GENUINE AUTO SPARE PARTS</span></a><p>© <span id="year"></span> MBZ TRADING. All rights reserved.</p></div></footer>
+<script src="script.js"></script>
+</body>
+</html>
