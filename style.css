@@ -314,7 +314,7 @@ h3{font-weight:600;letter-spacing:.01em}
 
 /* ---------- Brand strip + nav ---------- */
 .brand-strip{background:#000;border-bottom:1px solid rgba(30,144,255,.35)}
-.brand-logo,.footer-brand img{filter:brightness(0) invert(1)}
+.brand-logo,.footer-brand img{filter:none}
 .brand-note{color:var(--blue-hi);font-size:12px;font-weight:500;letter-spacing:.2em}
 .catalog-back{color:#fff;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
 .catalog-back:hover{color:var(--blue-hi)}
@@ -449,3 +449,29 @@ footer{background:#000;color:#8da2c7;border-top:1px solid rgba(30,144,255,.4)}
 .product-card{padding:22px 24px}
 .product-card h3{font-size:18px;margin-bottom:14px}
 @media(prefers-reduced-motion:reduce){.is-tilting{transform:none!important}}
+
+/* ===== LOGO + HEADER TEXT ===== */
+.brand-strip{min-height:138px;padding-top:10px;padding-bottom:10px}
+.brand-logo{width:auto;height:118px;max-width:100%;max-height:none;object-fit:contain;object-position:left center;filter:drop-shadow(0 0 18px rgba(30,144,255,.35))}
+.brand-note{font-size:15px;font-weight:700;letter-spacing:.18em;color:#5db8ff;text-shadow:0 0 14px rgba(30,144,255,.5)}
+.catalog-back{font-size:17px;font-weight:700;letter-spacing:.1em}
+.nav{gap:30px}
+.nav a{font-size:18px;font-weight:700;letter-spacing:.08em}
+.nav a.nav-cta{font-size:17px;padding:12px 20px}
+.nav-wrap{min-height:72px}
+.footer-brand img{width:auto;height:96px;filter:none}
+.footer-brand{max-width:none}
+.footer-brand span{font-size:12px;font-weight:700;letter-spacing:.2em;color:#9db6e0}
+.footer p{font-size:13px;font-weight:600}
+@media(max-width:900px){.nav{gap:18px}.nav a{font-size:16px}.nav a.nav-cta{font-size:15px;padding:11px 14px}.brand-note{font-size:12px}}
+@media(max-width:700px){
+  .brand-strip{min-height:104px;padding:8px 4%}
+  .brand-lockup{flex:0 0 auto}
+  .brand-logo{height:88px;width:auto;max-width:none;max-height:none}
+  .nav a.active:not(.nav-cta){box-shadow:none;border-left:4px solid var(--blue);padding-left:12px}
+  .brand-note{display:none}
+  .nav-wrap{min-height:58px}
+  .nav a{font-size:18px}
+  .nav a.nav-cta{font-size:17px}
+  .footer-brand img{height:78px}
+}
