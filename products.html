@@ -3,142 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MBZ TRADING - AUTO SPARE PARTS</title>
+<title>MBZ TRADING | Genuine Auto Spare Parts Catalogue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>
-* { box-sizing:border-box; }
-.mbz-brand {
-  text-align:center;
-  padding:28px 10px 18px;
-}
-.mbz-brand .title {
-  font-size:clamp(42px,7vw,78px);
-  font-weight:900;
-  line-height:1;
-  letter-spacing:.03em;
-}
-.mbz-brand .subtitle {
-  display:block;
-  margin-top:9px;
-  font-size:clamp(13px,1.6vw,21px);
-  font-weight:700;
-  letter-spacing:.22em;
-}
-.products-page {
-  max-width:1200px;
-  margin:0 auto;
-  padding:20px;
-}
-.products-tools {
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:22px 0;
-}
-.products-tools input,
-.products-tools select {
-  min-height:46px;
-  padding:11px 14px;
-  border:1px solid #ccc;
-  border-radius:8px;
-  font-size:16px;
-}
-.products-tools input {
-  flex:1 1 300px;
-}
-.products-grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-}
-.product-card {
-  border:1px solid #ddd;
-  border-radius:10px;
-  padding:18px;
-  background:#fff;
-}
-.product-card h3 {
-  margin:0 0 10px;
-  font-size:20px;
-}
-.product-meta {
-  margin:6px 0;
-  color:#555;
-}
-.whatsapp-btn {
-  display:inline-block;
-  margin-top:12px;
-  padding:10px 15px;
-  border-radius:7px;
-  text-decoration:none;
-  font-weight:700;
-}
-.page-status {
-  text-align:center;
-  margin:15px 0;
-  color:#666;
-}
-.pagination {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:7px;
-  margin:28px 0 45px;
-}
-.pagination button {
-  min-width:42px;
-  min-height:40px;
-  padding:8px 12px;
-  border:1px solid #ccc;
-  border-radius:7px;
-  background:#fff;
-  cursor:pointer;
-  font-weight:600;
-}
-.pagination button.active {
-  background:#111;
-  color:#fff;
-  border-color:#111;
-}
-.pagination button:disabled {
-  opacity:.45;
-  cursor:not-allowed;
-}
-@media(max-width:700px) {
-  .products-grid { grid-template-columns:1fr; }
-}
-</style>
+
 </head>
 
 <body>
-
-<!-- ONLY LARGE BRANDING -->
-<div class="mbz-brand">
-  <div class="title">MBZ TRADING</div>
-  <span class="subtitle">AUTO SPARE PARTS</span>
+<div class="brand-strip">
+  <a class="brand-lockup" href="index.html" aria-label="MBZ TRADING home">
+    <img class="brand-logo" src="assets/mbz-logo.svg" alt="MBZ Trading — Genuine Auto Spare Parts">
+  </a>
+  <a class="catalog-back" href="index.html">← Back to Home</a>
 </div>
-
-<main class="products-page">
-  <h1>Toyota Genuine Auto Spare Parts</h1>
-
-  <div class="products-tools">
-    <input id="searchInput" type="search"
-           placeholder="Search part number or description...">
-    <select id="categoryFilter">
-      <option value="">All Categories</option>
-    </select>
+<header class="catalog-header">
+  <div class="container catalog-hero-content">
+    <div><div class="tag">MBZ TRADING · WHOLESALE CATALOGUE</div>
+    <h1>GENUINE AUTO<br><span>SPARE PARTS</span></h1>
+    <p>Search by part number, description, category or fitment, then send your requirement directly to our team.</p></div>
+    <div class="catalog-hero-image" role="img" aria-label="Automotive parts and international logistics"></div>
   </div>
-
-  <div id="pageStatus" class="page-status"></div>
-
+</header>
+<main class="products-page">
+  <div class="products-tools">
+    <input id="searchInput" type="search" aria-label="Search parts" placeholder="Search part number, description or category...">
+    <select id="categoryFilter" aria-label="Filter by category"><option value="">All Categories</option></select>
+  </div>
+  <div id="pageStatus" class="page-status" aria-live="polite"></div>
   <div id="productsGrid" class="products-grid"></div>
-
-  <div id="pagination" class="pagination"></div>
-
+  <div id="pagination" class="pagination" aria-label="Catalogue pages"></div>
   <div id="pageNumber" class="page-status"></div>
 </main>
-
+<footer><div class="container footer"><a class="footer-brand" href="index.html"><img src="assets/mbz-logo.svg" alt="MBZ Trading"><span>GENUINE AUTO SPARE PARTS</span></a><p>© <span id="year"></span> MBZ TRADING. All rights reserved.</p></div></footer>
 <script src="script.js"></script>
 <script>
 (function () {
@@ -199,6 +97,16 @@
   }
 
   function normalize(item) {
+    if (Array.isArray(item)) {
+      return {
+        part: item[0] || "",
+        description: item[1] || "",
+        category: item[2] || "",
+        fitment: item[3] || "",
+        model: "",
+        engine: ""
+      };
+    }
     return {
       part: getValue(item, [
         "partNumber","part_number","Part Number","partNo","part",
@@ -315,13 +223,13 @@
     } else {
       grid.innerHTML = pageProducts.map(function(product) {
         const message =
-          "Hello MBZ TRADING, I am interested in Toyota genuine part " +
+          "Hello MBZ TRADING, I am interested in genuine auto spare part " +
           product.part +
           ". Please provide price and availability.";
 
         return `
           <article class="product-card">
-            <h3>${escapeHTML(product.part || "Toyota Genuine Part")}</h3>
+            <h3>${escapeHTML(product.part || "Genuine Auto Spare Part")}</h3>
 
             <div class="product-meta">
               <strong>Description:</strong>
@@ -426,6 +334,9 @@
   }
 
   // LOAD THE EXISTING MBZ TRADING PRODUCT DATA
+  const yearNode = document.getElementById("year");
+  if (yearNode) yearNode.textContent = new Date().getFullYear();
+
   allProducts = getProducts()
     .map(normalize)
     .filter(product => product.part || product.description);
@@ -433,7 +344,13 @@
   filteredProducts = allProducts.slice();
 
   populateCategories();
-  showPage();
+  const requestedCategory = new URLSearchParams(window.location.search).get("category");
+  if (requestedCategory && [...document.getElementById("categoryFilter").options].some(option => option.value === requestedCategory)) {
+    document.getElementById("categoryFilter").value = requestedCategory;
+    filterProducts();
+  } else {
+    showPage();
+  }
 
   document.getElementById("searchInput")
     .addEventListener("input", filterProducts);
