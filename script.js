@@ -69,3 +69,32 @@ var products=[["08889-80061", "(ATF), 4L COOLENT", "Other", "Selected vehicle ap
     });
   }
 })();
+
+/* ===== 3D tilt on mouse hover (desktop mouse only; skipped on touch and for reduced-motion users) ===== */
+(function(){
+  if(!window.matchMedia) return;
+  if(!window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  if(window.matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  var SEL=".cards article,.category-card,.about-detail-card,.product,.product-card,.hero-box,.contact-list a,.contact-list div,.about-commitment,.market-list span";
+  var active=null;
+  function reset(el){
+    el.classList.remove("is-tilting");
+    el.style.setProperty("--rx","0deg"); el.style.setProperty("--ry","0deg"); el.style.setProperty("--g","0");
+  }
+  document.addEventListener("mousemove",function(e){
+    var el=e.target&&e.target.closest?e.target.closest(SEL):null;
+    if(active&&active!==el){reset(active);active=null}
+    if(!el) return;
+    var r=el.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    var max=r.width>520?4:(r.width<140?6:10);              /* wide panels tilt less */
+    el.style.setProperty("--ry",((x-.5)*2*max).toFixed(2)+"deg");
+    el.style.setProperty("--rx",((.5-y)*2*max).toFixed(2)+"deg");
+    el.style.setProperty("--mx",(x*100).toFixed(1)+"%");
+    el.style.setProperty("--my",(y*100).toFixed(1)+"%");
+    el.style.setProperty("--g","1");
+    el.classList.add("is-tilting"); active=el;
+  },{passive:true});
+  document.addEventListener("mouseleave",function(){if(active){reset(active);active=null}});
+  window.addEventListener("blur",function(){if(active){reset(active);active=null}});
+})();

@@ -276,3 +276,176 @@ footer{padding:27px 0}
   .nav a.active:not(.nav-cta){box-shadow:none}
   .cta-band{padding:38px 0}
 }
+
+/* =====================================================================
+   BLACK & BRIGHT BLUE THEME  (loaded last, so it overrides everything above)
+   ===================================================================== */
+@property --g{syntax:'<number>';inherits:false;initial-value:0}
+:root{
+  --navy:#05070c;--navy-deep:#000;
+  --orange:#1e90ff;--orange-dark:#0b6fe0;        /* accent colour is now bright blue */
+  --blue:#1e90ff;--blue-hi:#4db0ff;--blue-deep:#073d91;--cyan:#00c2ff;
+  --ink:#eaf1ff;--muted:#a9b8d4;--line:#1d2c4a;--soft:#070b14;
+  --card:linear-gradient(160deg,#111a2e,#080c15);
+  --glow:0 24px 64px rgba(0,120,255,.38);--shadow:0 24px 64px rgba(0,120,255,.32);
+  --display:'Oswald','Arial Narrow',Impact,sans-serif;
+}
+html{scrollbar-color:#1e90ff #04060b}
+::selection{background:#1e90ff;color:#fff}
+body{font-family:'Poppins',Arial,sans-serif;font-weight:500;background:#04060b;color:var(--ink)}
+strong,b{font-weight:700}
+option{background:#0a0f1a;color:#fff}
+
+/* ---------- Bold display type ---------- */
+h1,h2,h3,.nav a,.btn,.tag,.badge,.markets-label,.quote-link,.part-no,.whatsapp-btn,.ask,.pagination button,
+.category-card-copy strong,.brand-note,.hero-box-top>span,.catalog-back,.footer-brand span{font-family:var(--display)}
+h1,h2{text-transform:uppercase;font-weight:700;letter-spacing:.01em}
+.hero h1{font-size:clamp(50px,6.6vw,96px);line-height:.98;letter-spacing:.005em;margin:20px 0 24px;max-width:820px;color:#fff}
+.catalog-header h1{font-size:clamp(40px,5.6vw,76px);line-height:1;letter-spacing:.005em;margin:12px 0 14px;color:#fff}
+.section h2,.about-intro h2{font-size:clamp(34px,4.4vw,58px);line-height:1.04;letter-spacing:.01em;color:#fff}
+.hero h1,.catalog-header h1{text-shadow:1px 1px 0 #0b4fb8,2px 2px 0 #0b4fb8,3px 3px 0 #0a3f96,4px 4px 0 #0a3f96,6px 10px 22px rgba(0,0,0,.75)}
+.hero h1 span,.catalog-header h1 span{color:#2ea0ff}
+.section h2{text-shadow:2px 2px 0 #0b4fb8,4px 8px 18px rgba(0,0,0,.6)}
+h3{font-weight:600;letter-spacing:.01em}
+.tag,.badge{color:var(--blue-hi);font-size:12px;letter-spacing:.22em;font-weight:600}
+.badge-line{background:var(--blue)}
+.hero p,.catalog-header p{color:#dbe6fb;font-weight:500;font-size:17px;line-height:1.8}
+.catalog-header p{font-size:15px}
+
+/* ---------- Brand strip + nav ---------- */
+.brand-strip{background:#000;border-bottom:1px solid rgba(30,144,255,.35)}
+.brand-logo,.footer-brand img{filter:brightness(0) invert(1)}
+.brand-note{color:var(--blue-hi);font-size:12px;font-weight:500;letter-spacing:.2em}
+.catalog-back{color:#fff;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.catalog-back:hover{color:var(--blue-hi)}
+.header{background:rgba(0,0,0,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,144,255,.45);box-shadow:0 10px 36px rgba(0,100,255,.18)}
+.nav{gap:26px}
+.nav a{font-size:15px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#e8f0ff}
+.nav a:hover,.nav a:focus-visible{color:var(--blue-hi);text-shadow:0 0 16px rgba(30,144,255,.9)}
+.nav a.nav-cta{background:linear-gradient(135deg,#2a9dff,#0b5fe0);color:#fff;border-radius:8px;box-shadow:0 4px 0 var(--blue-deep),0 10px 22px rgba(30,144,255,.45);transition:transform .15s,box-shadow .15s}
+.nav a.nav-cta:hover,.nav a.nav-cta:focus-visible{background:linear-gradient(135deg,#4db0ff,#1e7cf0);color:#fff;text-shadow:none;transform:translateY(-2px);box-shadow:0 6px 0 var(--blue-deep),0 14px 28px rgba(30,144,255,.55)}
+.nav a.active:not(.nav-cta){color:var(--blue-hi);box-shadow:inset 0 -3px 0 var(--blue)}
+.menu-toggle{color:#fff}
+
+/* ---------- Hero ---------- */
+.hero{background:radial-gradient(ellipse at 88% 12%,rgba(30,144,255,.42),transparent 46%),linear-gradient(90deg,rgba(0,0,0,.99) 0%,rgba(1,5,12,.94) 38%,rgba(2,10,26,.72) 64%,rgba(0,0,0,.5) 100%),url('assets/hero-auto-parts.jpg') center right/cover no-repeat,#000}
+.catalog-header{background:radial-gradient(ellipse at 90% 0%,rgba(30,144,255,.4),transparent 50%),linear-gradient(90deg,rgba(0,0,0,.99) 0%,rgba(1,6,16,.92) 50%,rgba(0,0,0,.55) 100%),url('assets/hero-auto-parts.jpg') center right/cover no-repeat,#000;border-bottom:1px solid rgba(30,144,255,.35)}
+.catalog-header .tag{color:var(--blue-hi)}
+.trust-row{color:#e6efff;font-size:12px;font-weight:600}
+.trust-row span:before{color:var(--blue-hi)}
+.hero-box{background:linear-gradient(160deg,rgba(18,28,50,.95),rgba(3,6,12,.96));color:var(--ink);border:1px solid rgba(30,144,255,.55);box-shadow:0 0 0 1px rgba(30,144,255,.12),0 32px 90px rgba(0,110,255,.38)}
+.hero-box h3{color:#fff;font-size:28px;line-height:1.15;text-transform:uppercase;max-width:none}
+.hero-box p{color:#b2c0da;font-size:14px}
+.hero-mark{background:#000;border-bottom:4px solid var(--blue);box-shadow:0 0 26px rgba(30,144,255,.55);font-family:var(--display)}
+.hero-box-top>span{color:#8fa8d2;font-size:11px}
+.hero-box-tags span{border:1px solid #27406b;background:rgba(30,144,255,.1);color:#d6e6ff;font-size:11px;font-weight:600}
+.quote-link{color:var(--blue-hi);font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+
+/* ---------- Buttons: chunky 3D ---------- */
+.btn{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;min-height:50px;border-radius:9px;transition:transform .15s,box-shadow .15s,background .2s}
+.btn.primary{background:linear-gradient(135deg,#2a9dff,#0b5fe0);color:#fff;box-shadow:0 5px 0 var(--blue-deep),0 14px 30px rgba(30,144,255,.42)}
+.btn.primary:hover{background:linear-gradient(135deg,#55b4ff,#1e7cf0);transform:translateY(-3px);box-shadow:0 8px 0 var(--blue-deep),0 20px 38px rgba(30,144,255,.55)}
+.btn.dark{background:#fff;color:#000;box-shadow:0 5px 0 #8fa3c7,0 14px 30px rgba(255,255,255,.12)}
+.btn.dark:hover{background:#e9f2ff;transform:translateY(-3px);box-shadow:0 8px 0 #8fa3c7,0 20px 38px rgba(255,255,255,.2)}
+.btn.outline{background:rgba(30,144,255,.08);color:#fff;border:2px solid var(--blue);box-shadow:0 5px 0 var(--blue-deep)}
+.btn.outline:hover{background:rgba(30,144,255,.25);transform:translateY(-3px);box-shadow:0 8px 0 var(--blue-deep),0 18px 34px rgba(30,144,255,.4)}
+.btn:active{transform:translateY(3px)!important;box-shadow:0 1px 0 var(--blue-deep)!important}
+
+/* ---------- Sections ---------- */
+.section{background:#04060b}
+.light{background:linear-gradient(180deg,#070b14,#04060b)}
+.about-section{background:radial-gradient(ellipse at 50% 0%,rgba(30,144,255,.14),transparent 55%),#04060b}
+.about-lead{color:#c1cde4;font-size:17px;font-weight:500}
+.heading p,.about-grid p{color:var(--muted);font-size:15px}
+.about-detail-card h3{color:#fff;font-size:22px;text-transform:uppercase}
+.about-detail-card p,.about-list{color:#b8c5de;font-size:15px}
+.about-list strong,.about-detail-card strong{color:var(--blue-hi)}
+.about-list li::marker{color:var(--blue)}
+.about-commitment{background:linear-gradient(135deg,#0a3a8a 0%,#1e90ff 62%,#00c2ff 100%);box-shadow:0 24px 60px rgba(0,110,255,.4)}
+.about-commitment .tag{color:#fff}
+.about-commitment p{color:#eef5ff;font-size:15px}
+.about-commitment>strong{font-family:var(--display);font-size:20px;letter-spacing:.03em;text-transform:uppercase}
+
+/* ---------- Cards (shared dark panel + mouse glare) ---------- */
+.cards article,.category-card,.about-detail-card,.product,.product-card,.contact-list a,.contact-list div{
+  background:radial-gradient(460px circle at var(--mx,50%) var(--my,50%),rgba(40,150,255,calc(var(--g,0)*.26)),transparent 62%),var(--card);
+  border:1px solid var(--line);color:var(--ink);
+  transition:transform .18s ease-out,box-shadow .25s,border-color .25s,--g .35s;
+}
+.cards article,.category-card,.about-detail-card,.product,.product-card,.contact-list a,.contact-list div,.hero-box,.about-commitment,.market-list span{transform-style:flat}
+.cards article:hover,.category-card:hover,.about-detail-card:hover,.product:hover,.product-card:hover,.contact-list a:hover{border-color:var(--blue);box-shadow:var(--glow)}
+/* the 3D tilt itself (variables are set by script.js while the mouse moves) */
+.is-tilting{position:relative;z-index:6;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-8px) scale(1.03)!important}
+.cards b{background:rgba(30,144,255,.15);color:var(--blue-hi);box-shadow:0 0 22px rgba(30,144,255,.25)}
+.cards h3{color:#fff;font-size:20px;text-transform:uppercase}
+.cards p{color:#aebcd6;font-size:14px;line-height:1.75}
+
+.markets-band{background:linear-gradient(110deg,#000,#06173a 60%,#000);border-top:1px solid rgba(30,144,255,.4);border-bottom:1px solid rgba(30,144,255,.4)}
+.markets-label{color:var(--blue-hi);font-size:12px;font-weight:600;letter-spacing:.2em}
+.markets-inner strong{font-family:var(--display);font-size:22px;letter-spacing:.03em;text-transform:uppercase;color:#fff}
+.market-list span{background:rgba(30,144,255,.12);border:1px solid rgba(30,144,255,.45);color:#e2eeff;font-size:13px;font-weight:600;transition:transform .18s ease-out,box-shadow .25s}
+.market-list span:hover{box-shadow:0 0 20px rgba(30,144,255,.5)}
+
+.category-card>img{background:#0b101b;border-bottom:1px solid var(--line)}
+.category-card-copy strong{color:#fff;font-size:16px;letter-spacing:.03em;text-transform:uppercase}
+.category-card-copy small{color:#9fb1d1;font-size:12px}
+
+/* ---------- Search / inputs ---------- */
+.search-wrap input,.search-wrap select,.products-tools input,.products-tools select,.form input,.form textarea{background:#0a0f1a;color:#fff;border:1px solid #243a63;font-weight:500;font-size:14px}
+.search-wrap input::placeholder,.products-tools input::placeholder,.form input::placeholder,.form textarea::placeholder{color:#6f84ab}
+.search-wrap input:focus,.search-wrap select:focus,.form input:focus,.form textarea:focus,.products-tools input:focus,.products-tools select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(30,144,255,.3),0 0 22px rgba(30,144,255,.25);outline:none}
+
+/* ---------- Catalogue product cards ---------- */
+.product-visual,.catalog-product-visual{background:#0b101b}
+.product h3,.product-card h3,.catalog-product-body h3{color:#fff;font-size:16px}
+.product .part-no{color:var(--blue-hi);font-size:13px;letter-spacing:.1em;font-weight:600}
+.product p{color:#a1b3d3;font-size:13px}
+.product p b{color:#fff}
+.product .ask,.catalog-product-body .whatsapp-btn,.whatsapp-btn{background:linear-gradient(135deg,#2a9dff,#0b5fe0);color:#fff;font-size:13px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 3px 0 var(--blue-deep);transition:transform .15s,box-shadow .15s}
+.product .ask:hover,.catalog-product-body .whatsapp-btn:hover,.whatsapp-btn:hover{background:linear-gradient(135deg,#55b4ff,#1e7cf0);color:#fff;transform:translateY(-2px);box-shadow:0 5px 0 var(--blue-deep),0 10px 20px rgba(30,144,255,.45)}
+.product-meta{color:#a5b4d0;font-size:13px}
+.product-meta strong{color:#fff}
+.no-results{color:var(--muted)}
+.no-results a,.catalog-more a{color:var(--blue-hi)}
+.catalog-more{color:var(--muted);font-size:13px}
+.page-status{color:#8da2c7;font-size:12px;font-weight:600}
+.pagination button{background:#0a0f1a;color:#d6e4ff;border:1px solid #243a63;font-size:13px;font-weight:600;box-shadow:0 3px 0 #05080f;transition:transform .15s,box-shadow .15s,border-color .2s}
+.pagination button:hover:not(:disabled){border-color:var(--blue);color:#fff;transform:translateY(-2px);box-shadow:0 5px 0 #05080f,0 0 16px rgba(30,144,255,.4)}
+.pagination button.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 3px 0 var(--blue-deep),0 0 20px rgba(30,144,255,.6)}
+
+/* ---------- Quote / contact / CTA ---------- */
+.quote-section{background:radial-gradient(ellipse at 85% 10%,rgba(30,144,255,.28),transparent 50%),#000;border-top:1px solid rgba(30,144,255,.3)}
+.quote-section h2,.quote-light h2{color:#fff}
+.quote-section p,.quote-light p{color:#c0cde6;font-size:15px}
+.quote-section.quote-light{background:radial-gradient(ellipse at 90% 0%,rgba(30,144,255,.2),transparent 50%),#04060b}
+.quote-note,.quote-light .quote-note{background:rgba(30,144,255,.1);border:1px solid rgba(30,144,255,.28);border-left:4px solid var(--blue);color:#dbe7ff;font-size:14px}
+.quote-note strong,.quote-light .quote-note strong{color:#fff}
+.form,.quote-light .form{background:var(--card);border:1px solid var(--line);color:#fff;box-shadow:0 24px 64px rgba(0,0,0,.55),0 0 0 1px rgba(30,144,255,.12)}
+.form label{color:#cfe0ff;font-size:13px;font-weight:600}
+.contact-list b{color:#fff;font-size:14px;font-family:var(--display);letter-spacing:.06em;text-transform:uppercase}
+.contact-list span{color:var(--blue-hi);font-size:15px;font-weight:600}
+#contactMsg{color:#5ee6a8;font-size:13px}
+.cta-band{background:linear-gradient(120deg,#062a66 0%,#1e90ff 70%,#00c2ff 100%);border-top:1px solid rgba(255,255,255,.2)}
+.cta-inner h2{font-size:clamp(28px,3.4vw,42px);text-transform:uppercase;text-shadow:2px 2px 0 rgba(0,40,120,.7)}
+.cta-band .tag{color:#fff}
+.cta-band .btn.primary{background:#000;color:#fff;box-shadow:0 5px 0 #000a1f,0 14px 30px rgba(0,0,0,.4)}
+.cta-band .btn.primary:hover{background:#0b1220}
+
+/* ---------- Footer ---------- */
+footer{background:#000;color:#8da2c7;border-top:1px solid rgba(30,144,255,.4)}
+.footer-brand span{color:#8da2c7;font-size:10px;font-weight:600}
+.footer p{font-size:12px;font-weight:500}
+
+@media(max-width:700px){
+  .hero{background:radial-gradient(ellipse at 80% 0%,rgba(30,144,255,.4),transparent 55%),linear-gradient(90deg,rgba(0,0,0,.97),rgba(2,8,20,.86)),url('assets/hero-auto-parts.jpg') center/cover no-repeat,#000}
+  .hero h1{font-size:clamp(44px,13vw,64px)}
+  .catalog-header h1{font-size:clamp(36px,11vw,52px)}
+  .section h2{font-size:clamp(30px,9vw,40px)}
+  .nav a{font-size:16px}
+  .nav a.nav-cta{margin-top:7px}
+  .hero h1,.catalog-header h1{text-shadow:1px 1px 0 #0b4fb8,2px 2px 0 #0a3f96,4px 6px 14px rgba(0,0,0,.7)}
+}
+/* products.html cards have no inner wrapper, so give them their own padding */
+.product-card{padding:22px 24px}
+.product-card h3{font-size:18px;margin-bottom:14px}
+@media(prefers-reduced-motion:reduce){.is-tilting{transform:none!important}}
