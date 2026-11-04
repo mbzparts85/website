@@ -5,13 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Search the MBZ TRADING genuine auto spare parts catalogue by part number, description or category.">
 <title>Catalogue | MBZ TRADING</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MBZ TRADING">
+<meta property="og:title" content="Catalogue | MBZ TRADING">
+<meta property="og:description" content="Search the MBZ TRADING genuine auto spare parts catalogue by part number, description or category.">
+<meta property="og:url" content="https://partsmbz.com/catalogue.html">
+<meta property="og:image" content="https://partsmbz.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="style.css">
+<script>(function(){var r=document.documentElement;r.classList.add('js-anim');try{if(sessionStorage.getItem('mbzPT'))r.classList.add('pt-in')}catch(e){}setTimeout(function(){if(!window.__mbzFx)r.classList.remove('js-anim','pt-in')},3500)})();</script>
 </head>
 <body>
+<div class="page-wipe"></div>
 <div class="brand-strip">
   <a class="brand-lockup" href="index.html" aria-label="MBZ TRADING home">
     <img class="brand-logo" src="assets/mbz-logo.png" alt="MBZ Trading — Genuine Auto Spare Parts">
@@ -27,7 +37,7 @@
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="catalogue.html" class="active">Catalogue</a>
-      <a href="products.html">All Parts</a>
+      <a href="brands.html">Brands</a>
       <a href="quote.html" class="nav-cta">Request a Quote</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -37,7 +47,7 @@
   <div class="container catalog-hero-content">
     <div>
       <div class="tag">PRODUCT CATALOGUE</div>
-      <h1>FIND YOUR <span>PART</span></h1>
+      <h1>Find Your <span>Part</span></h1>
       <p>Search by part number, product name or category, then enquire directly on WhatsApp.</p>
     </div>
   </div>
@@ -60,7 +70,7 @@
   </div>
   <div id="productGrid" class="product-grid"></div>
   <p id="noResults" class="no-results">No matching parts found. <a href="quote.html">Request this part</a>.</p>
-  <p class="catalog-more">Prefer a paged view? <a href="products.html">Browse all parts, 10 per page →</a></p>
+  <div id="moreWrap" class="more-wrap"><span id="shownCount" class="page-status"></span><button id="loadMore" class="btn primary" type="button">Show more parts</button></div>
 </div>
 </section>
 
@@ -75,6 +85,10 @@
 </section>
 <a class="wa-float" href="https://wa.me/923335173910" target="_blank" rel="noopener" aria-label="WhatsApp">↗</a>
 <footer><div class="container footer"><a class="footer-brand" href="index.html"><img src="assets/mbz-logo.png" alt="MBZ Trading"><span>GENUINE AUTO SPARE PARTS</span></a><p>© <span id="year"></span> MBZ TRADING. All rights reserved.</p></div></footer>
-<script src="script.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="script.js"></script>
+<script defer src="effects.js"></script>
 </body>
 </html>

@@ -4,12 +4,13 @@ Files included:
 - index.html: homepage (hero, about teaser, categories, quote call-to-action)
 - about.html: company profile
 - services.html: services and sourcing markets
-- catalogue.html: search and filter catalogue (all parts on one page)
-- products.html: searchable product catalogue with pagination (10 parts per page)
+- catalogue.html: search and filter catalogue with "Show more", copy part number and quote list
+- brands.html: brands we supply and our Toyota specialization
 - quote.html: quotation request form (sends to WhatsApp)
 - contact.html: contact details and message form
 - style.css: premium navy / white / orange theme and responsive layouts
-- script.js: existing catalogue data and enquiry functionality
+- script.js: catalogue data, quote list and enquiry functionality
+- effects.js: smooth scroll (Lenis), animation (GSAP) and 3D (Three.js)
 - assets/: MBZ logo and illustrative automotive category / hero imagery
 
 INSTALLATION
@@ -23,3 +24,9 @@ IMAGE NOTE
 The hero and category images are illustrative design imagery. They are not verified EPC/catalogue photographs for individual part numbers. Individual catalogue cards label these as illustrative category images so they are not mistaken for exact part-number pictures.
 
 The live website is not changed by generating this ZIP. Uploading the files to hosting is a separate step.
+
+
+BRAND LOGOS (optional)
+Put official logo files in assets/brands/ named toyota.png, honda.png, kia.png, hyundai.png, bmw.png, mercedes-benz.png, audi.png. They replace the text wordmarks automatically.
+
+REMOVED: products.html (the paged "All Parts" view). Delete it from your hosting; catalogue.html replaces it.

@@ -5,13 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="MBZ TRADING is an international genuine auto spare parts importer offering B2B wholesale sourcing, pre-orders and global supply.">
 <title>MBZ TRADING | Genuine Auto Spare Parts</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MBZ TRADING">
+<meta property="og:title" content="MBZ TRADING | Genuine Auto Spare Parts">
+<meta property="og:description" content="MBZ TRADING is an international genuine auto spare parts importer offering B2B wholesale sourcing, pre-orders and global supply.">
+<meta property="og:url" content="https://partsmbz.com/">
+<meta property="og:image" content="https://partsmbz.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="style.css">
+<script>(function(){var r=document.documentElement;r.classList.add('js-anim');try{if(sessionStorage.getItem('mbzPT'))r.classList.add('pt-in')}catch(e){}setTimeout(function(){if(!window.__mbzFx)r.classList.remove('js-anim','pt-in')},3500)})();</script>
 </head>
 <body>
+<div class="page-wipe"></div>
 <div class="brand-strip">
   <a class="brand-lockup" href="index.html" aria-label="MBZ TRADING home">
     <img class="brand-logo" src="assets/mbz-logo.png" alt="MBZ Trading — Genuine Auto Spare Parts">
@@ -27,7 +37,7 @@
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="catalogue.html">Catalogue</a>
-      <a href="products.html">All Parts</a>
+      <a href="brands.html">Brands</a>
       <a href="quote.html" class="nav-cta">Request a Quote</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -35,16 +45,17 @@
 </header>
 
 <section id="home" class="hero">
+  <canvas id="hero3d" aria-hidden="true"></canvas>
   <div class="container hero-grid">
     <div>
       <div class="badge"><span class="badge-line"></span> YOUR INTERNATIONAL PARTS SOURCING PARTNER</div>
-      <h1>GENUINE AUTO <span>SPARE PARTS</span></h1>
+      <h1><span class="h1-line">Genuine Auto</span> <span class="h1-line h1-accent">Spare Parts</span></h1>
       <p>International sourcing, dependable wholesale supply and parts procurement on demand for automotive businesses around the world.</p>
       <div class="actions">
         <a class="btn primary" href="catalogue.html">Explore Catalogue</a>
         <a class="btn dark" href="https://wa.me/923335173910?text=Hello%20MBZ%20TRADING%2C%20I%20would%20like%20to%20enquire%20about%20genuine%20auto%20spare%20parts." target="_blank" rel="noopener">WhatsApp Us</a>
       </div>
-      <div class="trust-row"><span>Genuine sourcing</span><span>Wholesale enquiries</span><span>B2B sourcing</span></div>
+      <div class="trust-row"><span>✓ Genuine sourcing</span><span>✓ Wholesale enquiries</span><span>✓ International supply</span></div>
     </div>
     <div class="hero-box">
       <div class="hero-box-top"><div class="hero-mark">MBZ</div><span>WHOLESALE<br>PARTNER</span></div>
@@ -53,6 +64,15 @@
       <div class="hero-box-tags"><span>UAE</span><span>Thailand</span><span>Indonesia</span><span>China</span></div>
       <a href="quote.html" class="quote-link">Request a quotation <span>→</span></a>
     </div>
+  </div>
+</section>
+
+<section class="stats" aria-label="MBZ TRADING at a glance">
+  <div class="container stats-inner">
+    <div class="stat"><b data-count="products" data-suffix="+">0</b><span>Parts in catalogue</span></div>
+    <div class="stat"><b data-count="4">0</b><span>Sourcing markets</span></div>
+    <div class="stat"><b data-count="7">0</b><span>Automotive brands</span></div>
+    <div class="stat"><b data-count="100" data-suffix="%">0</b><span>B2B wholesale</span></div>
   </div>
 </section>
 
@@ -67,10 +87,35 @@
   </div>
 </section>
 
-<section class="markets-band" aria-label="International sourcing markets">
-  <div class="container markets-inner">
-    <div><span class="markets-label">OUR SOURCING MARKETS</span><strong>International reach. Business-focused supply.</strong></div>
-    <div class="market-list"><span>UAE</span><span>Thailand</span><span>Indonesia</span><span>China</span></div>
+<section class="ticker" aria-label="International sourcing markets">
+  <div class="ticker-track"><span>UAE</span><span>Thailand</span><span>Indonesia</span><span>China</span><span>Wholesale Supply</span><span>Pre-Orders</span></div>
+</section>
+
+<section class="section globe-section">
+  <div class="container globe-grid">
+    <div class="globe-copy">
+      <div class="tag">GLOBAL SOURCING NETWORK</div>
+      <h2>Sourced across four markets.</h2>
+      <p>We import automotive spare parts from established international markets and supply them to wholesalers, distributors, retailers and importers. Tell us what you need and we will find it through our supplier network.</p>
+      <ul class="globe-list"><li>UAE</li><li>Thailand</li><li>Indonesia</li><li>China</li></ul>
+      <a class="btn primary" href="services.html">See Our Services</a>
+    </div>
+    <div class="globe-wrap"><canvas id="globe3d" aria-label="Globe showing our sourcing routes from the UAE, Thailand, Indonesia and China"></canvas></div>
+  </div>
+</section>
+
+<section class="section how" id="how">
+  <div class="container">
+    <div class="heading"><div class="tag">HOW IT WORKS</div><h2>From Requirement to Delivery</h2></div>
+    <div class="how-track">
+      <div class="how-line"><i></i></div>
+      <div class="steps">
+        <article class="step"><span class="step-no">1</span><h3>Send Your Requirement</h3><p>Share part numbers, quantities or a full parts list with our team.</p></article>
+        <article class="step"><span class="step-no">2</span><h3>We Source</h3><p>We search our international supplier network for your parts.</p></article>
+        <article class="step"><span class="step-no">3</span><h3>Receive Your Quote</h3><p>You get pricing and availability, from stock or by pre-order.</p></article>
+        <article class="step"><span class="step-no">4</span><h3>Supply &amp; Delivery</h3><p>We arrange your wholesale supply and keep you updated.</p></article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -78,13 +123,21 @@
   <div class="container">
     <div class="heading"><div class="tag">PRODUCT CATALOGUE</div><h2>Browse by Category</h2><p>Select a category to see matching parts, or search the full catalogue by part number.</p></div>
     <div class="category-showcase">
-      <a class="category-card" href="products.html?category=Other"><img src="assets/body-parts.jpg" alt="Illustrative body parts"><span class="category-card-copy"><strong>Body Parts</strong><small>Bumpers, bonnets, fenders, doors</small></span></a>
-      <a class="category-card" href="products.html?category=Electrical"><img src="assets/electrical-parts.jpg" alt="Illustrative electrical auto parts"><span class="category-card-copy"><strong>Electrical Parts</strong><small>Sensors, switches, lights, wiring</small></span></a>
-      <a class="category-card" href="products.html?category=Suspension"><img src="assets/suspension-parts.jpg" alt="Illustrative suspension parts"><span class="category-card-copy"><strong>Suspension Parts</strong><small>Shocks, control arms, bushes</small></span></a>
-      <a class="category-card" href="products.html?category=Engine"><img src="assets/engine-parts.jpg" alt="Illustrative engine parts"><span class="category-card-copy"><strong>Engine Parts</strong><small>Engine, cooling, gaskets, belts</small></span></a>
-      <a class="category-card" href="products.html?category=Filters"><img src="assets/filters-parts.jpg" alt="Illustrative automotive filters"><span class="category-card-copy"><strong>Filters &amp; More</strong><small>Oil, air and fuel filters</small></span></a>
+      <a class="category-card" href="catalogue.html?category=Other#partSearch"><img src="assets/body-parts.jpg" alt="Illustrative body parts"><span class="category-card-copy"><strong>Body Parts</strong><small>Bumpers, bonnets, fenders, doors</small></span></a>
+      <a class="category-card" href="catalogue.html?category=Electrical#partSearch"><img src="assets/electrical-parts.jpg" alt="Illustrative electrical auto parts"><span class="category-card-copy"><strong>Electrical Parts</strong><small>Sensors, switches, lights, wiring</small></span></a>
+      <a class="category-card" href="catalogue.html?category=Suspension#partSearch"><img src="assets/suspension-parts.jpg" alt="Illustrative suspension parts"><span class="category-card-copy"><strong>Suspension Parts</strong><small>Shocks, control arms, bushes</small></span></a>
+      <a class="category-card" href="catalogue.html?category=Engine#partSearch"><img src="assets/engine-parts.jpg" alt="Illustrative engine parts"><span class="category-card-copy"><strong>Engine Parts</strong><small>Engine, cooling, gaskets, belts</small></span></a>
+      <a class="category-card" href="catalogue.html?category=Filters#partSearch"><img src="assets/filters-parts.jpg" alt="Illustrative automotive filters"><span class="category-card-copy"><strong>Filters &amp; More</strong><small>Oil, air and fuel filters</small></span></a>
     </div>
-    <div class="actions" style="justify-content:center;margin-top:0"><a class="btn primary" href="catalogue.html">Search the Catalogue</a><a class="btn outline" href="products.html">View All Parts</a></div>
+    <div class="actions" style="justify-content:center;margin-top:0"><a class="btn primary" href="catalogue.html">Search the Catalogue</a></div>
+  </div>
+</section>
+
+<section class="section light">
+  <div class="container" style="text-align:center">
+    <div class="heading"><div class="tag">BRANDS WE SUPPLY</div><h2>Japanese, Korean &amp; German Brands</h2></div>
+    <div class="brand-chips"><span>Toyota</span><span>Honda</span><span>Kia</span><span>Hyundai</span><span>BMW</span><span>Mercedes-Benz</span><span>Audi</span></div>
+    <div class="actions" style="justify-content:center"><a class="btn primary" href="brands.html">View Our Brands</a></div>
   </div>
 </section>
 
@@ -94,7 +147,7 @@
       <div class="tag">REQUEST A QUOTATION</div>
       <h2>Send us your part requirement.</h2>
       <p>Share your part numbers, quantities and requirements. We will prepare your enquiry for our wholesale sourcing team.</p>
-      <div class="quote-note">WhatsApp: <strong>+92-333-5173910</strong><br>Email: <strong>mbztrading0086@gmail.com</strong><br>Address: <strong>Office #18, First Floor, Select One Plaza, F-11 Markaz, Islamabad</strong></div>
+      <div class="quote-note">WhatsApp: <strong>+92-333-5173910</strong><br>Email: <strong>mbztrading0086@gmail.com</strong></div>
     </div>
     <div class="actions" style="margin-top:0;align-self:center">
       <a class="btn primary" href="quote.html">Request a Quote</a>
@@ -105,6 +158,11 @@
 
 <a class="wa-float" href="https://wa.me/923335173910" target="_blank" rel="noopener" aria-label="WhatsApp">↗</a>
 <footer><div class="container footer"><a class="footer-brand" href="index.html"><img src="assets/mbz-logo.png" alt="MBZ Trading"><span>GENUINE AUTO SPARE PARTS</span></a><p>© <span id="year"></span> MBZ TRADING. All rights reserved.</p></div></footer>
-<script src="script.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="script.js"></script>
+<script defer src="effects.js"></script>
 </body>
 </html>
