@@ -102,7 +102,7 @@ var products=[["08889-80061", "(ATF), 4L COOLENT", "Other", "Selected vehicle ap
     var card=function(p){
       var msg="Hello MBZ TRADING, I need a quotation for genuine auto spare part number "+p[0]+". Please share price, availability and origin.";
       return '<article class="product">'+
-        '<div class="product-visual"><img src="'+categoryImage(p[2])+'" alt="Illustrative '+esc(p[2]||"auto parts")+' category image" loading="lazy"><span>CATALOGUE ITEM</span></div>'+
+        '<div class="product-visual"><img src="assets/'+encodeURIComponent(p[0])+'.jpg" data-fallback="'+categoryImage(p[2])+'" alt="'+esc(p[0]+" "+(p[1]||"auto part"))+'" loading="lazy" onerror="if(this.dataset.fallback){var f=this.dataset.fallback;this.removeAttribute(\'data-fallback\');this.alt=\'Illustrative category image\';this.src=f;}"><span>CATALOGUE ITEM</span></div>'+
         '<div class="product-content"><div class="part-row"><div class="part-no">'+esc(p[0])+'</div><button type="button" class="copy-pn" data-pn="'+esc(p[0])+'" aria-label="Copy part number">Copy</button></div>'+
         '<h3>'+esc(p[1])+'</h3><p><b>Category:</b> '+esc(p[2])+'</p><p>'+esc(p[3])+'</p>'+
         '<div class="card-actions"><button type="button" class="add-quote" data-pn="'+esc(p[0])+'" data-desc="'+esc(p[1])+'">+ Add to quote</button>'+
