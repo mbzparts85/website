@@ -242,8 +242,13 @@
           product.part +
           ". Please provide price and availability.";
 
+        const imgSrc = (typeof partImageSrc === "function")
+          ? partImageSrc(product.part, product.category)
+          : "assets/" + product.part + ".jpg";
+
         return `
           <article class="product-card">
+            <div class="catalog-product-visual"><img src="${escapeHTML(imgSrc)}" alt="${escapeHTML((product.part || "") + " " + (product.description || "auto part"))}" loading="lazy"></div>
             <h3>${escapeHTML(product.part || "Genuine Auto Spare Part")}</h3>
 
             <div class="product-meta">
